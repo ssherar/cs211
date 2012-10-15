@@ -1,25 +1,18 @@
 package uk.ac.aber.dcs.cs221.wordladders.model;
 
+import java.util.ArrayList;
+
 public class Node {
-	private Node previous;
-	private Node next;
+	private ArrayList<Node> next;
 	private String value;
 	private int weight;
 	
 	public Node() {
-		previous = null;
-		next = null;
+		next = new ArrayList<Node>();
 		value = null;
 		weight = 0;
 	}
 
-	public Node getPrevious() {
-		return previous;
-	}
-
-	public void setPrevious(Node previous) {
-		this.previous = previous;
-	}
 
 	public Node getNext() {
 		return next;
