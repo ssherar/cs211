@@ -22,12 +22,13 @@ public class CLWriter {
 	* @return	The integer, or Int.MIN_VALUE otherwise
 	*/
     public int readInt() {
+    	int retVal;
         try { 
-            return (int)input.nextInt();
+            retVal = input.nextInt();
         } catch(Exception e) {
-            
+            retVal = Integer.MIN_VALUE;
         }
-        return Integer.MIN_VALUE;
+        return retVal;
     }
     
 	/**
@@ -36,18 +37,17 @@ public class CLWriter {
 	* @return	String or nothing otherwise
 	*/
     public String readString(int length) {
+    	String retVal;
         try {
-        	String ret = "";
         	if(length > 0) {
-        		ret = new String(input.next().substring(0,length -1));
+        		retVal = new String(input.next().substring(0,length -1));
         	} else {
-        		ret = new String(input.next());
+        		retVal = new String(input.next());
         	}
-        	return ret;
         } catch (Exception e) {
-
+        	retVal = "";
         }
-        return "";
+        return retVal;
     }
     
     public String readString() {
