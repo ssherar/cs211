@@ -14,11 +14,11 @@ public class Node {
 	}
 
 
-	public Node getNext() {
+	public ArrayList<Node> getNext() {
 		return next;
 	}
 
-	public void setNext(Node next) {
+	public void setNext(ArrayList<Node> next) {
 		this.next = next;
 	}
 
