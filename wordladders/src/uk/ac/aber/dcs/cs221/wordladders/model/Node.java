@@ -1,42 +1,25 @@
 package uk.ac.aber.dcs.cs221.wordladders.model;
 
-import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class Node {
-	private ArrayList<Node> next;
+	private Hashtable<String, Node> connected;
 	private String value;
-	private int weight;
 	
-	public Node() {
-		next = new ArrayList<Node>();
-		value = null;
-		weight = 0;
-	}
-
-
-	public ArrayList<Node> getNext() {
-		return next;
-	}
-
-	public void setNext(ArrayList<Node> next) {
-		this.next = next;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
+	public Node(String value) {
+		this.connected = new Hashtable<String, Node>();
 		this.value = value;
 	}
-
-	public int getWeight() {
-		return weight;
-	}
-
-	public void setWeight(int weight) {
-		this.weight = weight;
+	
+	public void addNode(Node node) {
+		this.connected.put(node.value, node);
 	}
 	
+	public Hashtable<String, Node> getConnected() {
+		return this.connected;
+	}
 	
+	public int getConnectionsLength() {
+		return this.connected.size();
+	}
 }
