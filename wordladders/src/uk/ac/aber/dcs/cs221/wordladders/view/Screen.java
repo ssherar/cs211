@@ -28,8 +28,9 @@ public class Screen {
 	}
 	
 	public String writeFilePrompt() {
-		cli.write("Please enter a file path to gather words from > ");
+		cli.prompt("Please enter a file path to gather words from > ");
 		String fileName = cli.readString();
+		cli.write();
 		return fileName;
 	}
 }
