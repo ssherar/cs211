@@ -33,4 +33,9 @@ public class Screen {
 		cli.write();
 		return fileName;
 	}
+	
+	public void writeError(String errorMessage) {
+		cli.write(errorMessage);
+		cli.write();
+	}
 }
