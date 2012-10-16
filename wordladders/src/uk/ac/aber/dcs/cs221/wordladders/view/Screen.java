@@ -15,7 +15,7 @@ public class Screen {
 		cli.write();
 	}
 	
-	public String writeMenu() {
+	public int writeMenu() {
 		cli.write("Menu");
 		cli.write("======");
 		cli.write("1) Generate a Word Ladder from a word");
@@ -23,6 +23,7 @@ public class Screen {
 		cli.write("0) To quit the application");
 		cli.write();
 		cli.prompt("Please enter a value > ");
-		return "";
+		int tmp = cli.readInt();
+		return tmp;
 	}
 }
