@@ -26,4 +26,10 @@ public class Screen {
 		int tmp = cli.readInt();
 		return tmp;
 	}
+	
+	public String writeFilePrompt() {
+		cli.write("Please enter a file path to gather words from > ");
+		String fileName = cli.readString();
+		return fileName;
+	}
 }
