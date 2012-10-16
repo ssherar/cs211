@@ -1,15 +1,13 @@
 package uk.ac.aber.dcs.cs221.wordladders.controller;
 
 public class WordGenerator extends WordCreator {
-
 	public WordGenerator() {
-		super();
-	}
-
-	@Override
-	public void generateLadder() {
-		// TODO Auto-generated method stub
 		
 	}
-
+	
+	public String[] generateLadder(String word, int steps) {
+		String[] retVal = new String[1];
+		this.generateAssociations(word);
+		return retVal;
+	}
 }

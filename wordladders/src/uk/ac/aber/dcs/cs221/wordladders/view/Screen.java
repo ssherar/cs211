@@ -34,6 +34,20 @@ public class Screen {
 		return fileName;
 	}
 	
+	public int getInt(String message) {
+		cli.prompt(message + " >");
+		int retVal = cli.readInt();
+		cli.write();
+		return retVal;
+	}
+	
+	public String getString(String message) {
+		cli.prompt(message + " >");
+		String retVal = cli.readString();
+		cli.write();
+		return retVal;
+	}
+	
 	public void writeError(String errorMessage) {
 		cli.write(errorMessage);
 		cli.write();

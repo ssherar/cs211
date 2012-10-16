@@ -8,32 +8,51 @@ import uk.ac.aber.dcs.cs221.wordladders.controller.*;
 public class Manager {
 	private Screen screen;
 	private String fileName;
-	private WordGenerator gen;
 	
 	public Manager() {
 		screen = new Screen();
 		this.getFile();
 		this.init();
-		gen = null;
 	}
 	
 	public void init() {
 		int index = 0;
 		do {
 			index = this.screen.writeMenu();
+			switch(index) {
+				case 1:
+					this.generate();
+					break;
+				case 2:
+					break;
+			}
 		} while(index != 0);
 	}
 	
 	public void getFile() {
-		gen = new WordGenerator();
-		
+		File wordFile;
 		do {
-			try {
-				this.fileName = this.screen.writeFilePrompt();
-				gen.setFile(fileName);
-			} catch (IOException e) {
-				this.screen.writeError("Cannot find: " + e.getMessage() + ". Please try again");
+			this.fileName = this.screen.writeFilePrompt();
+			wordFile = new File(fileName);
+			if(!wordFile.exists()) {
+				this.screen.writeError("File not found: " + fileName + ". Please enter a valid file path and name");
 			}
-		} while(!gen.hasFile());
+		} while(!wordFile.exists());
+	}
+	
+	public void generate() {
+		WordGenerator gen = new WordGenerator();
+		String word;
+		int steps;
+		try {
+			gen.setFile(this.fileName);
+		} catch(IOException e) {
+			this.screen.writeError("File error: " + e.getMessage());
+		}
+		
+		word = this.screen.getString("Please enter a word to start from");
+		steps = this.screen.getInt("And the number of steps");
+		gen.generateLadder(word, steps);
+		//this.screen.writeWords());
 	}
 }
