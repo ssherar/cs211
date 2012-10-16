@@ -8,7 +8,7 @@ public class Manager {
 	
 	public Manager() {
 		screen = new Screen();
-		this.getFile();
+		this.fileName = this.getFile();
 		this.init();
 	}
 	
