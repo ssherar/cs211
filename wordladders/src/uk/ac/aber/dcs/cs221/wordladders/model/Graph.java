@@ -49,9 +49,40 @@ public class Graph {
 		return retVal;
 	}
 	
+	public Node getParentNode(String node) {
+		Node retVal;
+		if(this.nodes.containsKey(node)) {
+			retVal = this.nodes.get(node);
+		} else {
+			retVal = null;
+		}
+		return retVal;
+	}
+	
 	public boolean exists(String node) {
 		return this.nodes.containsKey(node);
 	}
 	
+	public Hashtable<String, Node> getNodes() {
+		return this.nodes;
+	}
 	
+	public LinkedList<Node> dfs(String node) {
+		LinkedList<Node> linkedNodes = new LinkedList<Node>();
+		if(this.nodes.containsKey(node)) {
+			
+			dfs(this.nodes.get(node), linkedNodes);
+		}
+		return linkedNodes;
+	}
+	
+	public void dfs(Node node, LinkedList<Node> linkedNodes) {
+		linkedNodes.add(node);
+		for(Node n : getNeighbours(node.getValue())) {
+			if(!linkedNodes.contains(n)) {
+				dfs(n, linkedNodes);
+			}
+		}
+	}
+
 }

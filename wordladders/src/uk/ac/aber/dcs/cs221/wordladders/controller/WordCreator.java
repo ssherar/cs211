@@ -7,7 +7,7 @@ import java.io.*;
 
 public class WordCreator {
 	private File wordFile;
-	protected Graph graph;;
+	protected Graph graph;
 	
 	public WordCreator() {
 		graph = new Graph();
@@ -43,25 +43,20 @@ public class WordCreator {
 	}
 	
 	public void generateAssociations() {
-		/*for(String word : this.words.keySet()) {
+		Hashtable<String, Node> nodeTable = this.graph.getNodes();
+		for(String word : nodeTable.keySet()) {
 			for(int i = 0; i < word.length(); i++) {
-				char[] character = word.toCharArray();
+				char[] characters = word.toCharArray();
 				for(int j = 97; j < 123; j++) {
 					char newChar = (char) j;
-					character[i] = newChar;
-					String tmp = new String(character);
-					if(this.words.containsKey(tmp) && !word.equals(tmp)) {
-						Node to, from;
-						to = this.words.get(tmp);
-						from  = this.words.get(word);
-						to.addNode(from);
-						from.addNode(to);
+					characters[i] = newChar;
+					String newWord = new String(characters);
+					if(nodeTable.containsKey(newWord) && !word.equals(newWord)) {
+						this.graph.addEdge(word, newWord);
 					}
 				}
 			}
-		}*/
-		
-		for(String word : )
+		}
 	}
 	
 	public void setFile(String fileName) throws IOException {
