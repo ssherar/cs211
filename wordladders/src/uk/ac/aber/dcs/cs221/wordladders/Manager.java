@@ -52,7 +52,6 @@ public class Manager {
 		
 		word = this.screen.getString("Please enter a word to start from");
 		steps = this.screen.getInt("And the number of steps");
-		gen.generateLadder(word, steps);
-		//this.screen.writeWords());
+		screen.writeWords(gen.generateLadder(word, steps));
 	}
 }

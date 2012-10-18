@@ -31,9 +31,9 @@ public class NodeTest {
 	
 	@Test
 	public void testSizes() {
-		assertEquals("", 1, clock.getConnectionsLength());
-		assertEquals("", 1, flick.getConnectionsLength());
-		assertEquals("", 2, click.getConnectionsLength());
+		assertEquals("", 1, clock.getSize());
+		assertEquals("", 1, flick.getSize());
+		assertEquals("", 2, click.getSize());
 		assertEquals("", 3, ladder.size());
 	}
 	
@@ -46,8 +46,8 @@ public class NodeTest {
 		clock.addNode(flock);
 		flock.addNode(clock);
 		
-		assertEquals("", 2, flick.getConnectionsLength());
-		assertEquals("", 2, flock.getConnectionsLength());
+		assertEquals("", 2, flick.getSize());
+		assertEquals("", 2, flock.getSize());
 		assertEquals("", 4, ladder.size());
 	}
 

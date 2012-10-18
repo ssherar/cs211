@@ -7,10 +7,10 @@ import java.io.*;
 
 public class WordCreator {
 	private File wordFile;
-	protected Hashtable<String, Node> words;
+	protected Graph graph;;
 	
 	public WordCreator() {
-		this.words = new Hashtable<String, Node>();
+		graph = new Graph();
 		this.wordFile = null;
 	}
 	
@@ -22,8 +22,8 @@ public class WordCreator {
 				line = line.replaceAll("[\\p{P}-[._]]", "");
 				if(line.indexOf(" ") == -1) {
 					tmp = line.toLowerCase();
-					if(!this.words.containsKey(tmp)) {
-						words.put(tmp, new Node(tmp));
+					if(!this.graph.exists(tmp)) {
+						this.graph.addVertex(tmp);
 					}
 				} else {
 					//TODO: Debug the ArrayIndexOutOfBoundsException 
@@ -31,8 +31,8 @@ public class WordCreator {
 					wordsTmp = line.split(" ");
 					for(int i = 0; i < line.length() - 1; i++) {
 						tmp = wordsTmp[i].toLowerCase();
-						if(!this.words.containsKey(tmp)) {
-							words.put(tmp, new Node(tmp));
+						if(!this.graph.exists(tmp)) {
+							this.graph.addVertex(tmp);
 						}
 					}
 				}
@@ -40,21 +40,28 @@ public class WordCreator {
 			
 		}
 		br.close();
-		System.out.println(this.words.size());
 	}
 	
-	public void generateAssociations(String word) {
-		for(int i = 0; i < word.length() - 1; i++) {
-			char[] characters = word.toCharArray();
-			for(int j = 97; j < 123; j++) {
-				char newChar = (char) j;
-				characters[i] = newChar;
-				String tmp = new String(characters);
-				if(this.words.containsKey(tmp) && !word.equals(tmp)) {
-					System.out.println(tmp);
+	public void generateAssociations() {
+		/*for(String word : this.words.keySet()) {
+			for(int i = 0; i < word.length(); i++) {
+				char[] character = word.toCharArray();
+				for(int j = 97; j < 123; j++) {
+					char newChar = (char) j;
+					character[i] = newChar;
+					String tmp = new String(character);
+					if(this.words.containsKey(tmp) && !word.equals(tmp)) {
+						Node to, from;
+						to = this.words.get(tmp);
+						from  = this.words.get(word);
+						to.addNode(from);
+						from.addNode(to);
+					}
 				}
 			}
-		}
+		}*/
+		
+		for(String word : )
 	}
 	
 	public void setFile(String fileName) throws IOException {
