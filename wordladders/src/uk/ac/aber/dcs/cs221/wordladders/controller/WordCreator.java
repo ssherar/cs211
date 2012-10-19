@@ -7,10 +7,10 @@ import java.io.*;
 
 public class WordCreator {
 	private File wordFile;
-	protected Graph graph;
+	protected Graph<String> graph;
 	
 	public WordCreator() {
-		graph = new Graph();
+		graph = new Graph<String>();
 		this.wordFile = null;
 	}
 	
@@ -43,7 +43,7 @@ public class WordCreator {
 	}
 	
 	public void generateAssociations() {
-		Hashtable<String, Node> nodeTable = this.graph.getNodes();
+		Hashtable<String, Node<String>> nodeTable = this.graph.getNodes();
 		for(String word : nodeTable.keySet()) {
 			for(int i = 0; i < word.length(); i++) {
 				char[] characters = word.toCharArray();

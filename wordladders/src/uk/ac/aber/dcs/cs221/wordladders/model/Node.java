@@ -2,30 +2,30 @@ package uk.ac.aber.dcs.cs221.wordladders.model;
 
 import java.util.*;
 
-public class Node {
-	private Hashtable<String, Node> connected;
-	private String value;
+public class Node<T> {
+	private Hashtable<T, Node<T>> connected;
+	private T value;
 	private int index;
 	
-	public Node(String value) {
-		this.connected = new Hashtable<String, Node>();
+	public Node(T value) {
+		this.connected = new Hashtable<T, Node<T>>();
 		this.value = value;
 		index = 0;
 	}
 	
-	public void addNode(Node node) {
+	public void addNode(Node<T> node) {
 		this.connected.put(node.value, node);
 	}
 	
-	public Hashtable<String, Node> getConnected() {
+	public Hashtable<T, Node<T>> getConnected() {
 		return this.connected;
 	}
 	
-	public Node getFirstConnected() {
+	public Node<T> getFirstConnected() {
 		return this.connected.get(0);
 	}
 	
-	public Node get(int index) {
+	public Node<T> get(int index) {
 		return this.connected.get(index);
 	}
 	
@@ -33,12 +33,12 @@ public class Node {
 		return connected.size();
 	}
 	
-	public String getValue() {
+	public T getValue() {
 		return this.value;
 	}
 	
-	public Node getNext() {
-		Node ret = this.connected.get(index);
+	public Node<T> getNext() {
+		Node<T> ret = this.connected.get(index);
 		index++;
 		return ret;
 	}

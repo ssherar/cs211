@@ -13,7 +13,7 @@ public class WordGenerator extends WordCreator {
 		//TODO validation
 		String[] retVal = new String[steps];
 		if(this.graph.exists(word)) {
-			LinkedList<Node> genLadder = this.graph.dfs(word);
+			LinkedList<Node<String>> genLadder = this.graph.dfs(word);
 			for(int i = 0; i < steps; i++) {
 				retVal[i] = genLadder.get(i).getValue();
 			}
