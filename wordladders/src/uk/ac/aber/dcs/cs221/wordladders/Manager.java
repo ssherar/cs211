@@ -8,9 +8,11 @@ import uk.ac.aber.dcs.cs221.wordladders.controller.*;
 public class Manager {
 	private Screen screen;
 	private String fileName;
+	private WordGenerator gen;
 	
 	public Manager() {
 		screen = new Screen();
+		gen = new WordGenerator();
 		this.getFile();
 		this.init();
 	}
@@ -38,17 +40,19 @@ public class Manager {
 				this.screen.writeError("File not found: " + fileName + ". Please enter a valid file path and name");
 			}
 		} while(!wordFile.exists());
-	}
-	
-	public void generate() {
-		WordGenerator gen = new WordGenerator();
-		String word;
-		int steps;
 		try {
 			gen.setFile(this.fileName);
+			gen.generateAssociations();
 		} catch(IOException e) {
 			this.screen.writeError("File error: " + e.getMessage());
 		}
+	}
+	
+	public void generate() {
+		
+		String word;
+		int steps;
+	
 		
 		word = this.screen.getString("Please enter a word to start from");
 		steps = this.screen.getInt("And the number of steps");
