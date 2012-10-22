@@ -67,4 +67,5 @@ public class WordCreator {
 	public boolean hasFile() {
 		return (this.wordFile.exists());
 	}
+
 }

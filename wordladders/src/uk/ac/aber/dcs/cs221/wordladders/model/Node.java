@@ -5,12 +5,9 @@ import java.util.*;
 public class Node<T> {
 	private Hashtable<T, Node<T>> connected;
 	private T value;
-	private int index;
 	
 	public Node(T value) {
 		this.connected = new Hashtable<T, Node<T>>();
-		this.value = value;
-		index = 0;
 	}
 	
 	public void addNode(Node<T> node) {
@@ -21,14 +18,6 @@ public class Node<T> {
 		return this.connected;
 	}
 	
-	public Node<T> getFirstConnected() {
-		return this.connected.get(0);
-	}
-	
-	public Node<T> get(int index) {
-		return this.connected.get(index);
-	}
-	
 	public int getSize() {
 		return connected.size();
 	}
@@ -37,9 +26,4 @@ public class Node<T> {
 		return this.value;
 	}
 	
-	public Node<T> getNext() {
-		Node<T> ret = this.connected.get(index);
-		index++;
-		return ret;
-	}
 }

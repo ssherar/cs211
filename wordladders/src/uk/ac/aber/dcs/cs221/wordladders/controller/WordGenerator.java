@@ -18,9 +18,13 @@ public class WordGenerator extends WordCreator {
 				retVal[i] = genLadder.get(i).getValue();
 			}
 		} else {
-			//throw new NodeDoesnotexistException();
+			//throw new NodeDoesnotexistException();	
 		}
 		return retVal;
+	}
+	
+	public void discover(String startWord, String endWord) {
+		this.graph.bfs(startWord, endWord);
 	}
 
 }

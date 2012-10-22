@@ -26,6 +26,7 @@ public class Manager {
 					this.generate();
 					break;
 				case 2:
+					this.discover();
 					break;
 			}
 		} while(index != 0);
@@ -57,5 +58,14 @@ public class Manager {
 		word = this.screen.getString("Please enter a word to start from");
 		steps = this.screen.getInt("And the number of steps");
 		screen.writeWords(gen.generateLadder(word, steps));
+	}
+	
+	public void discover() {
+		
+		String startWord, endWord;
+		
+		startWord = this.screen.getString("Please enter the start word");
+		endWord = this.screen.getString("Please enter the end word");
+		gen.discover(startWord, endWord);
 	}
 }

@@ -84,5 +84,45 @@ public class Graph<K> {
 			}
 		}
 	}
+	
+	public void bfs(K startNode, K endNode) {
+		if(this.nodes.containsKey(startNode) && this.nodes.containsKey(endNode)) {
+			this.bfs(this.nodes.get(startNode), this.nodes.get(endNode));
+		}
+	}
+	
+	public void bfs(Node<K> node, Node<K> endNode) {
+		HashMap<Node<K>, Node<K>> nextNodeMap = new HashMap<Node<K>, Node<K>>();
+		Queue<Node<K>> q = new LinkedList<Node<K>>();
+		Node<K> currentNode;
+		//Hashtable<K, Integer> visited = new Hashtable<K, Integer>();
+		Set<Node<K>> visited = new HashSet<Node<K>>();
+		q.add(node);
+		visited.add(node);
+		
+		while(!q.isEmpty()) {
+			currentNode = q.remove();
+			if(currentNode.equals(endNode)) {
+				break;
+			} else {
+				for(Node<K> nextNode : getNeighbours(currentNode.getValue())) {
+					if(!visited.contains(nextNode)) {
+						q.add(nextNode);
+						visited.add(nextNode);
+						nextNodeMap.put(currentNode, nextNode);
+					}
+				}
+			}
+			
+		}
+		
+		Node<K> sp = nextNodeMap.get(node);
+		System.out.print(node.getValue() + " -> ");
+		while(!sp.equals(endNode)) {
+			System.out.print(sp.getValue() + " -> ");
+			sp = nextNodeMap.get(sp);
+		}
+		System.out.println(sp.getValue());
+	}
 
 }
