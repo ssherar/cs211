@@ -8,15 +8,15 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 public class NodeTest {
-	private Node clock, click, flick;
-	private Hashtable<String, Node> ladder;
+	private Node<String> clock, click, flick;
+	private Hashtable<String, Node<String>> ladder;
 	
 	@Before
 	public void setup() {
-		ladder = new Hashtable<String, Node>();
-		clock = new Node("Clock");
-		click = new Node("Click");
-		flick = new Node("Flick");
+		ladder = new Hashtable<String, Node<String>>();
+		clock = new Node<String>("Clock");
+		click = new Node<String>("Click");
+		flick = new Node<String>("Flick");
 		
 		ladder.put("Clock", clock);
 		ladder.put("Click", click);
@@ -39,7 +39,7 @@ public class NodeTest {
 	
 	@Test
 	public void testadd() {
-		Node flock = new Node("Flock");
+		Node<String> flock = new Node<String>("Flock");
 		ladder.put("Flock", flock);
 		flick.addNode(flock);
 		flock.addNode(flick);

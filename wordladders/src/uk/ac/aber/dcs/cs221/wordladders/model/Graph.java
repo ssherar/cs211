@@ -92,7 +92,7 @@ public class Graph<K> {
 	}
 	
 	public Hashtable<K, K> bfs(Node<K> node, Node<K> endNode) {
-                Hashtable<K,K> predecessor = new Hashtable<K,K>();
+		Hashtable<K,K> predecessor = new Hashtable<K,K>();
 		Queue<Node<K>> q = new LinkedList<Node<K>>();
 		Node<K> currentNode;
 		Set<Node<K>> visited = new HashSet<Node<K>>();
@@ -109,7 +109,7 @@ public class Graph<K> {
 					if(!visited.contains(nextNode)) {
 						q.add(nextNode);
 						visited.add(nextNode);
-                                                predecessor.put(nextNode.getValue(), currentNode.getValue());
+                        predecessor.put(nextNode.getValue(), currentNode.getValue());
 					}
 				}
 			}

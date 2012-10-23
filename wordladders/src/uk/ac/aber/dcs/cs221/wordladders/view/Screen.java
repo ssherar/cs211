@@ -64,13 +64,13 @@ public class Screen {
 		cli.write();
 	}
         
-        public void writeWords(LinkedList<String> words) {
-            String printVal = "";
-            for(int i = 0; i < words.size(); i++) {
-                printVal += words.get(i) + " -> ";
-            }
-            printVal = printVal.substring(0, printVal.length() - 4);
-            cli.write(printVal);
-            cli.write();
-        }
+	public void writeWords(LinkedList<String> words) {
+		String printVal = "";
+		for(int i = 0; i < words.size(); i++) {
+			printVal += words.get(i) + " -> ";
+		}
+		printVal = printVal.substring(0, printVal.length() - 4);
+		cli.write(printVal);
+		cli.write();
+	}
 }
