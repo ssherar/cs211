@@ -21,6 +21,7 @@ public class Screen {
 		cli.write("======");
 		cli.write("1) Generate a Word Ladder from a word");
 		cli.write("2) Discover the smallest change from one word to another");
+		cli.write("3) Use a different dictionary file");
 		cli.write("0) To quit the application");
 		cli.write();
 		cli.prompt("Please enter a value > ");
@@ -36,14 +37,14 @@ public class Screen {
 	}
 	
 	public int getInt(String message) {
-		cli.prompt(message + " >");
+		cli.prompt(message + " > ");
 		int retVal = cli.readInt();
 		cli.write();
 		return retVal;
 	}
 	
 	public String getString(String message) {
-		cli.prompt(message + " >");
+		cli.prompt(message + " > ");
 		String retVal = cli.readString();
 		cli.write();
 		return retVal;
@@ -54,16 +55,6 @@ public class Screen {
 		cli.write();
 	}
 	
-	public void writeWords(String[] words) {
-		String printVal = "";
-		for(int i = 0; i < words.length; i++) {
-			printVal += words[i] + " -> ";
-		}
-		printVal = printVal.substring(0, printVal.length() - 4);
-		cli.write(printVal);
-		cli.write();
-	}
-        
 	public void writeWords(LinkedList<String> words) {
 		String printVal = "";
 		for(int i = 0; i < words.size(); i++) {

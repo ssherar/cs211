@@ -29,6 +29,8 @@ public class Manager {
 				case 2:
 					this.discover();
 					break;
+				case 3:
+					this.getFile();
 				default:
 					break;
 			}
@@ -44,6 +46,7 @@ public class Manager {
 				this.screen.writeError("File not found: " + fileName + ". Please enter a valid file path and name");
 			}
 		} while(!wordFile.exists());
+		
 		try {
 			gen.setFile(this.fileName);
 			gen.generateAssociations();

@@ -88,7 +88,11 @@ public class Graph<K> {
 	public Hashtable<K,K> bfs(K startNode, K endNode) {
 		if(this.nodes.containsKey(startNode) && this.nodes.containsKey(endNode)) {
 			return this.bfs(this.nodes.get(startNode), this.nodes.get(endNode));
-		} else return null;
+		} else {
+			
+			//TODO fix this shit
+			return null;
+		}
 	}
 	
 	public Hashtable<K, K> bfs(Node<K> node, Node<K> endNode) {

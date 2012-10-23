@@ -9,14 +9,14 @@ public class WordGenerator extends WordCreator {
 		
 	}
 	
-	public String[] generateLadder(String word, int steps) throws WordLadderException{
+	public LinkedList<String> generateLadder(String word, int steps) throws WordLadderException{
 		//TODO validation
-		String[] retVal;
+		LinkedList<String> retVal = new LinkedList<String>();
 		if(this.graph.exists(word)) {
 			LinkedList<Node<String>> genLadder = this.graph.dfs(word);
-			retVal = new String[genLadder.size()];
-			for(int i = 0; i < genLadder.size(); i++) {
-				retVal[i] = genLadder.get(i).getValue();
+			int min = Math.min(steps, genLadder.size());
+			for(int i = 0; i < min; i++) {
+				retVal.add(genLadder.get(i).getValue());
 			}
 		} else {
 			throw new WordLadderException("Word does not exist in the dictionary file");	
@@ -28,19 +28,22 @@ public class WordGenerator extends WordCreator {
 		LinkedList<String> retVal = null;
 		if(startWord.length() == endWord.length()) {
 			Hashtable<String,String> ladder = this.graph.bfs(startWord, endWord);
-			if(ladder.containsKey(endWord)) {
-				retVal = new LinkedList<String>();
-		
-				retVal.add(endWord);
-				String tmp = ladder.get(endWord);
-				retVal.add(tmp);
-		
-				while(!tmp.equals(startWord)) {
-					tmp = ladder.get(tmp);
+			if(this.graph.exists(startWord) && this.graph.exists(endWord)) {
+				if(ladder.containsKey(endWord)) {
+					retVal = new LinkedList<String>();
+					retVal.add(endWord);
+					String tmp = ladder.get(endWord);
 					retVal.add(tmp);
+			
+					while(!tmp.equals(startWord)) {
+						tmp = ladder.get(tmp);
+						retVal.add(tmp);
+					}
+			
+					Collections.reverse(retVal);
+				} else {
+					throw new WordLadderException("Either " + startWord + " or " + endWord + " do not exist in the dictionary");
 				}
-		
-				Collections.reverse(retVal);
 			} else {
 				throw new WordLadderException("No link can be found between " + startWord + " and " + endWord);
 			}
