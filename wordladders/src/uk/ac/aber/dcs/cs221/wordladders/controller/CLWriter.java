@@ -17,7 +17,7 @@ public class CLWriter {
     }
     
 	/**
-	* Read an Int from the users input
+	* Read an Integer from the users input
 	* @param	null
 	* @return	The integer, or Int.MIN_VALUE otherwise
 	*/
