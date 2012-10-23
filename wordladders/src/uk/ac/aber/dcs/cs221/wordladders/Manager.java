@@ -1,6 +1,7 @@
 package uk.ac.aber.dcs.cs221.wordladders;
 
 import java.io.*;
+import java.util.LinkedList;
 
 import uk.ac.aber.dcs.cs221.wordladders.view.*;
 import uk.ac.aber.dcs.cs221.wordladders.controller.*;
@@ -27,6 +28,8 @@ public class Manager {
 					break;
 				case 2:
 					this.discover();
+					break;
+				default:
 					break;
 			}
 		} while(index != 0);
@@ -57,7 +60,11 @@ public class Manager {
 		
 		word = this.screen.getString("Please enter a word to start from");
 		steps = this.screen.getInt("And the number of steps");
-		screen.writeWords(gen.generateLadder(word, steps));
+		try {
+			screen.writeWords(gen.generateLadder(word, steps));
+		} catch(WordLadderException e) {
+			screen.writeError("Word Error: " + e.getMessage());
+		}
 	}
 	
 	public void discover() {
@@ -66,6 +73,11 @@ public class Manager {
 		
 		startWord = this.screen.getString("Please enter the start word");
 		endWord = this.screen.getString("Please enter the end word");
-		screen.writeWords(gen.discover(startWord, endWord));
+		try {
+			LinkedList<String> ladder = gen.discover(startWord, endWord);
+			screen.writeWords(ladder);
+		} catch(WordLadderException e) {
+			screen.writeError("Word Error: " + e.getMessage());
+		}
 	}
 }
