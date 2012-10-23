@@ -4,10 +4,10 @@ import uk.ac.aber.dcs.cs221.wordladders.controller.*;
 import java.util.*;
 
 public class Screen {
-	private CLWriter cli;
+	private CLHandler cli;
 	
 	public Screen() {
-		cli = new CLWriter();
+		cli = new CLHandler();
 		cli.write("----------------------------------------");
 		cli.write(" Welcome to WordLadders assignment");
 		cli.write("             (CS211)");

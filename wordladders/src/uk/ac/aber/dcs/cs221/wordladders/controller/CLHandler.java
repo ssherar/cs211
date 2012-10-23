@@ -2,7 +2,7 @@ package uk.ac.aber.dcs.cs221.wordladders.controller;
 
 import java.util.*;
 
-public class CLWriter {
+public class CLHandler {
 	/**
 	* Javas input class
 	*/
@@ -12,7 +12,7 @@ public class CLWriter {
 	* Constructor for the class
 	* @param	null
 	*/
-    public CLWriter() {
+    public CLHandler() {
         input = new Scanner(System.in);
     }
     
