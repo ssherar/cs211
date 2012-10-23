@@ -91,5 +91,4 @@ public class CLHandler {
     public void prompt(String line) {
     	System.out.print(line);
     }
-    
 }

@@ -165,7 +165,7 @@ public class Graph<K> {
 	 *
 	 * @param startNode the start node
 	 * @param endNode the end node
-	 * @return the hashtable
+	 * @return the hashtable of associations between nodes
 	 * @see Graph#bfs(node, endNode)
 	 */
 	public Hashtable<K,K> bfs(K startNode, K endNode) {
@@ -177,11 +177,15 @@ public class Graph<K> {
 	}
 	
 	/**
-	 * Bfs.
+	 * Breadth First Search. Used for finding the shortest path between
+	 * two nodes. This method runs through all the child nodes of the 
+	 * first node till it finds the end node. During this time it creates
+	 * associations between the nodes to backtrack and find the shortest
+	 * path.
 	 *
 	 * @param node the node
 	 * @param endNode the end node
-	 * @return the hashtable
+	 * @return the hashtable of associations between nodes
 	 */
 	public Hashtable<K, K> bfs(Node<K> node, Node<K> endNode) {
 		Hashtable<K,K> predecessor = new Hashtable<K,K>();

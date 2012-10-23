@@ -9,11 +9,12 @@ import java.util.*;
  */
 public class Screen {
 	
-	/** The cli. */
+	/** The commandline interface class. */
 	private CLHandler cli;
 	
 	/**
-	 * Instantiates a new screen.
+	 * Instantiates a new screen. Just writes out a
+	 * header.
 	 */
 	public Screen() {
 		cli = new CLHandler();
@@ -26,9 +27,9 @@ public class Screen {
 	}
 	
 	/**
-	 * Write menu.
+	 * Write the menu.
 	 *
-	 * @return the int
+	 * @return the integer choice from the menu
 	 */
 	public int writeMenu() {
 		cli.write("Menu");
@@ -44,9 +45,10 @@ public class Screen {
 	}
 	
 	/**
-	 * Write file prompt.
+	 * Write a file prompt to the screen and
+	 * gathers the file path from users input
 	 *
-	 * @return the string
+	 * @return the file path as a string
 	 */
 	public String writeFilePrompt() {
 		cli.prompt("Please enter a file path to gather words from > ");
@@ -56,23 +58,24 @@ public class Screen {
 	}
 	
 	/**
-	 * Gets the int.
+	 * Retrieves an integer value from the user
+	 * when prompted with a message
 	 *
 	 * @param message the message
-	 * @return the int
+	 * @return the integer value
 	 */
 	public int getInt(String message) {
 		cli.prompt(message + " > ");
 		int retVal = cli.readInt();
-		cli.write();
 		return retVal;
 	}
 	
 	/**
-	 * Gets the string.
+	 * Retrieves a String value from the user
+	 * when prompted with a message
 	 *
 	 * @param message the message
-	 * @return the string
+	 * @return the string value
 	 */
 	public String getString(String message) {
 		cli.prompt(message + " > ");
@@ -82,17 +85,21 @@ public class Screen {
 	}
 	
 	/**
-	 * Write error.
+	 * Write an error to the users screen and prompting
+	 * the user to acknowledge
 	 *
 	 * @param errorMessage the error message
 	 */
 	public void writeError(String errorMessage) {
 		cli.write(errorMessage);
+		cli.prompt("Please press enter to confirm and continue...");
+		cli.readString();
 		cli.write();
 	}
 	
 	/**
-	 * Write words.
+	 * Display a list of words in a human
+	 * readable manor.
 	 *
 	 * @param words the words
 	 */
