@@ -1,0 +1,68 @@
+\documentclass[10pt, a4paper]{article}
+
+\usepackage{algorithm2e}
+
+\begin{document}
+
+\title{Wordladders: CS211 Assignment 1}
+\date{October 22, 2012}
+\author{Samuel B Sherar (sbs1)}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Abstract}
+
+\section{UML Diagrams}
+
+\subsection{Use Case Diagram}
+
+\subsection{Class Diagrams}
+
+\section{Justification of classes}
+
+\subsection{Model}
+
+\subsection{View}
+
+\subsection{Controller}
+
+\section{Pseudocode description}
+
+\subsection{Collecting words from files}
+
+\begin{algorithm}[H]
+\SetAlgoLined
+	\KwData{file name as a string}
+	\eIf{file exists on file system} {
+		Open file through a buffered reader \\
+		\While{get line from opened file} {
+			Remove all punctuation \\
+			\eIf{position of space character is -1} {
+				Create new node in hashtable \\
+			} {
+				\For{all words in line} {
+					Create new node in hashtable\\
+				}
+			}
+		}
+		Close file handler\\
+	} {
+		Return error to user, ask for a different input file\\
+	}
+
+\end{algorithm}
+
+\subsection{Creating associations}
+
+\subsection{Generation of a word ladder}
+
+\subsection{Discovery of a word ladder}
+
+\section{Testing}
+
+\section{Evaluation}
+
+\end{document}
