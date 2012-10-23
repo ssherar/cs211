@@ -8,3 +8,11 @@
 # Eclipse
 .classpath
 .project
+/wordladders/JavaApplication6/nbproject/private/
+/wordladders/nbproject/private/
+/wordladders/build/
+
+# Netbeans
+build.xml
+manifest.mf
+nbproject/

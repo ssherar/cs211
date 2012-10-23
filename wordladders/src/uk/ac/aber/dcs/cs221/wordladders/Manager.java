@@ -66,6 +66,6 @@ public class Manager {
 		
 		startWord = this.screen.getString("Please enter the start word");
 		endWord = this.screen.getString("Please enter the end word");
-		gen.discover(startWord, endWord);
+		screen.writeWords(gen.discover(startWord, endWord));
 	}
 }
