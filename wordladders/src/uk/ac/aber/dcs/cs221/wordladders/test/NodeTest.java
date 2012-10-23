@@ -7,10 +7,21 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class NodeTest.
+ */
 public class NodeTest {
+	
+	/** The flick. */
 	private Node<String> clock, click, flick;
+	
+	/** The ladder. */
 	private Hashtable<String, Node<String>> ladder;
 	
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		ladder = new Hashtable<String, Node<String>>();
@@ -29,6 +40,9 @@ public class NodeTest {
 		flick.addNode(click);
 	}
 	
+	/**
+	 * Test sizes.
+	 */
 	@Test
 	public void testSizes() {
 		assertEquals("", 1, clock.getSize());
@@ -37,6 +51,9 @@ public class NodeTest {
 		assertEquals("", 3, ladder.size());
 	}
 	
+	/**
+	 * Testadd.
+	 */
 	@Test
 	public void testadd() {
 		Node<String> flock = new Node<String>("Flock");

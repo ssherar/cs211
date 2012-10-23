@@ -4,11 +4,31 @@ import java.util.*;
 
 import uk.ac.aber.dcs.cs221.wordladders.model.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class WordGenerator, which inherits methods the protected variable
+ * {@link WordCreator#graph} to create the different wordladders
+ */
 public class WordGenerator extends WordCreator {
+	
+	/**
+	 * Instantiates a new word generator.
+	 */
 	public WordGenerator() {
-		
+		super();
 	}
 	
+	/**
+	 * Generates a ladder with a start word with a limiting amount of steps.
+	 * If there are more steps than nodes available, we choose the minimum
+	 * between the steps or size of the returned list
+	 *
+	 * @param word the word
+	 * @param steps the steps
+	 * @return the linked list
+	 * @throws WordLadderException the error which will be returned to the user
+	 * @see model.Graph#dfs(word)
+	 */
 	public LinkedList<String> generateLadder(String word, int steps) throws WordLadderException{
 		//TODO validation
 		LinkedList<String> retVal = new LinkedList<String>();
@@ -24,6 +44,15 @@ public class WordGenerator extends WordCreator {
 		return retVal;
 	}
 	
+	/**
+	 * Discover the shortest path between two words.
+	 *
+	 * @param startWord the start word
+	 * @param endWord the end word
+	 * @return the linked list
+	 * @throws WordLadderException the error which will be returned to the user
+	 * @see model.Graph#bfs(startWord, endWord)
+	 */
 	public LinkedList<String> discover(String startWord, String endWord) throws WordLadderException {
 		LinkedList<String> retVal = null;
 		if(startWord.length() == endWord.length()) {

@@ -6,11 +6,25 @@ import java.util.LinkedList;
 import uk.ac.aber.dcs.cs221.wordladders.view.*;
 import uk.ac.aber.dcs.cs221.wordladders.controller.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Manager.
+ */
 public class Manager {
+	
+	/** The class to write out to console. */
 	private Screen screen;
+	
+	/** The file name for the dictionary files. */
 	private String fileName;
+	
+	/** The Word Ladder Generator. */
 	private WordGenerator gen;
 	
+	/**
+	 * Instantiates a new manager, which gives initialises the class
+	 * wide variables and runs {@link Manager#getFile()} and {@link Manager#init()}.
+	 */
 	public Manager() {
 		screen = new Screen();
 		gen = new WordGenerator();
@@ -18,6 +32,13 @@ public class Manager {
 		this.init();
 	}
 	
+	/**
+	 * The main method which runs the loop to collect values from the
+	 * menu, and calls the relevant function depending on users input
+	 * @see Manager#generate()
+	 * @see Manager#discover()
+	 * @see Manager#getFile()
+	 */
 	public void init() {
 		int index = 0;
 		do {
@@ -37,6 +58,10 @@ public class Manager {
 		} while(index != 0);
 	}
 	
+	/**
+	 * Gets the file name from the user. If it doesn't exist, it will
+	 * ask until you it can find a valid file
+	 */
 	public void getFile() {
 		File wordFile;
 		do {
@@ -55,6 +80,9 @@ public class Manager {
 		}
 	}
 	
+	/**
+	 * Generate a word ladder with a given word and amount of steps.
+	 */
 	public void generate() {
 		
 		String word;
@@ -70,6 +98,9 @@ public class Manager {
 		}
 	}
 	
+	/**
+	 * Discover the shortest path between two different words.
+	 */
 	public void discover() {
 		
 		String startWord, endWord;

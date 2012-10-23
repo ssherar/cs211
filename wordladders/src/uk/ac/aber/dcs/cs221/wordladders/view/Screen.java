@@ -3,9 +3,18 @@ package uk.ac.aber.dcs.cs221.wordladders.view;
 import uk.ac.aber.dcs.cs221.wordladders.controller.*;
 import java.util.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Screen.
+ */
 public class Screen {
+	
+	/** The cli. */
 	private CLHandler cli;
 	
+	/**
+	 * Instantiates a new screen.
+	 */
 	public Screen() {
 		cli = new CLHandler();
 		cli.write("----------------------------------------");
@@ -16,6 +25,11 @@ public class Screen {
 		cli.write();
 	}
 	
+	/**
+	 * Write menu.
+	 *
+	 * @return the int
+	 */
 	public int writeMenu() {
 		cli.write("Menu");
 		cli.write("======");
@@ -29,6 +43,11 @@ public class Screen {
 		return tmp;
 	}
 	
+	/**
+	 * Write file prompt.
+	 *
+	 * @return the string
+	 */
 	public String writeFilePrompt() {
 		cli.prompt("Please enter a file path to gather words from > ");
 		String fileName = cli.readString();
@@ -36,6 +55,12 @@ public class Screen {
 		return fileName;
 	}
 	
+	/**
+	 * Gets the int.
+	 *
+	 * @param message the message
+	 * @return the int
+	 */
 	public int getInt(String message) {
 		cli.prompt(message + " > ");
 		int retVal = cli.readInt();
@@ -43,6 +68,12 @@ public class Screen {
 		return retVal;
 	}
 	
+	/**
+	 * Gets the string.
+	 *
+	 * @param message the message
+	 * @return the string
+	 */
 	public String getString(String message) {
 		cli.prompt(message + " > ");
 		String retVal = cli.readString();
@@ -50,11 +81,21 @@ public class Screen {
 		return retVal;
 	}
 	
+	/**
+	 * Write error.
+	 *
+	 * @param errorMessage the error message
+	 */
 	public void writeError(String errorMessage) {
 		cli.write(errorMessage);
 		cli.write();
 	}
 	
+	/**
+	 * Write words.
+	 *
+	 * @param words the words
+	 */
 	public void writeWords(LinkedList<String> words) {
 		String printVal = "";
 		for(int i = 0; i < words.size(); i++) {
