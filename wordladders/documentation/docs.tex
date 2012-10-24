@@ -74,7 +74,29 @@
 
 \subsection{Generation of a word ladder}
 
+\begin{algorithm}[H]
+\SetAlgoLined
+	Add node to list
+	\For{each neighbouring nodes} {
+		\If{list doesn't contain node} {
+			Recursively call with node
+		}
+	}
+\end{algorithn}
+
 \subsection{Discovery of a word ladder}
+
+\begin{algorithm}[H]
+\SetAlgoLined
+	Create a queue and add first node
+	\While{queue is not empty} {
+		Remove node from queue
+		\For{Neighbouring nodes from dequeued node} {
+			Add node to queue
+			Add relationship between neighbouring node and start node
+		}
+	}
+\end{algorithm}
 
 \section{Testing}
 
