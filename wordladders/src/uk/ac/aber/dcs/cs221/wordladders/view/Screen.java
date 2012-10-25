@@ -92,8 +92,6 @@ public class Screen {
 	 */
 	public void writeError(String errorMessage) {
 		cli.write(errorMessage);
-		cli.prompt("Please press enter to confirm and continue...");
-		cli.readString();
 		cli.write();
 	}
 	
