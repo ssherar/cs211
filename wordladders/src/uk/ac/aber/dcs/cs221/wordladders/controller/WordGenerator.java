@@ -34,9 +34,13 @@ public class WordGenerator extends WordCreator {
 		LinkedList<String> retVal = new LinkedList<String>();
 		if(this.graph.exists(word)) {
 			LinkedList<Node<String>> genLadder = this.graph.dfs(word);
-			int min = Math.min(steps, genLadder.size());
-			for(int i = 0; i < min; i++) {
-				retVal.add(genLadder.get(i).getValue());
+			if(genLadder.size() != 1) {
+				int min = Math.min(steps, genLadder.size());
+				for(int i = 0; i < min; i++) {
+					retVal.add(genLadder.get(i).getValue());
+				}
+			} else {
+				throw new WordLadderException("No links can be made with other nodes with the word " + word);
 			}
 		} else {
 			throw new WordLadderException("Word does not exist in the dictionary file");	
