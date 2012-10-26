@@ -1,7 +1,7 @@
 package uk.co.samsherar.wordladders.test;
 import java.util.Hashtable;
 
-import uk.co.samsherar.wordladder.model.*;
+import uk.co.samsherar.wordladders.model.*;
 
 import static org.junit.Assert.*;
 

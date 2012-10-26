@@ -1,6 +1,6 @@
 package uk.co.samsherar.wordladders.controller;
 
-import uk.co.samsherar.wordladder.model.*;
+import uk.co.samsherar.wordladders.model.*;
 
 import java.util.*;
 import java.io.*;

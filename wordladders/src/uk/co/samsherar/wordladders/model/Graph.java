@@ -1,4 +1,4 @@
-package uk.co.samsherar.wordladder.model;
+package uk.co.samsherar.wordladders.model;
 
 import java.util.*;
 

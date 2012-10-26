@@ -17,3 +17,9 @@ build.xml
 manifest.mf
 nbproject/
 doc/
+release/
+
+#Compiled source
+*.class
+*.pdf
+*.aux

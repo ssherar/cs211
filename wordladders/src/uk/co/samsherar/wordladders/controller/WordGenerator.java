@@ -2,7 +2,7 @@ package uk.co.samsherar.wordladders.controller;
 
 import java.util.*;
 
-import uk.co.samsherar.wordladder.model.*;
+import uk.co.samsherar.wordladders.model.*;
 
 /**
  * The Class WordGenerator, which inherits methods the protected variable

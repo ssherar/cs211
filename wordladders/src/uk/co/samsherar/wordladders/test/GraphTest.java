@@ -1,6 +1,6 @@
 package uk.co.samsherar.wordladders.test;
 
-import uk.co.samsherar.wordladder.model.*;
+import uk.co.samsherar.wordladders.model.*;
 
 import static org.junit.Assert.*;
 
