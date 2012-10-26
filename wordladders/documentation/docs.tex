@@ -3,6 +3,7 @@
 \usepackage{algorithm2e}
 \usepackage{graphicx}
 \usepackage{lscape}
+\usepackage{multirow}
 
 \begin{document}
 
@@ -121,6 +122,32 @@ In \texttt{WordCreator}, I handle the main data manipulation of the words, such 
 
 \section{Testing}
 
+\hspace*{-1in}
+\begin{tabular}{| c | p{3.5cm} | p{3in} | c |}
+\hline 
+Test Class & Test Method & What is being tested & P/F \\ \hline
+\multirow{4}{*} {NodeTest} 
+& testSizes & Checking if the sizes are correct from the setup function, and also checking associations created between them & P \\
+& testAdd & Checking if the sizes of the ladder are correct when adding new items, while also the associations have been created with the new items & P \\ 
+& testGetValue & Check if the value in the nodes return correctly & P \\
+& testMemoryAddresses & Check if the objects from associations are the same from the ladder & P \\
+& testEquals & Check if the associated nodes are equal on values and connected nodes & P \\ \hline
+
+\multirow{5}{*}{GraphTest}
+& testAddNodes & Comparing sizes of the \texttt{graph}'s hashtable before and after adding an item & P \\
+& testAddEdges & Adding associations between two nodes, and checking the sizes have increased. I also tried to add the same association again to make sure they didn't increase again & P \\
+& testGetEdges & Comparing the amount of connected nodes in two connected nodes, as they should be the same if they have ONLY been connected to each other & P \\
+& testDFS & Checking if a word ladder was created from a word & P \\
+& testBFS &  I added an extra node between "click" and "clock" called "clack", and ran the BFS search, making sure that it does take the shortest path & P \\ \hline
+
+\multirow{2}{*}{Exception Testing}
+& IOException Testing & Checking if an IOException is thrown if we put a file which we know not to exist. & P \\
+& WordLadderException Testing & There are numerous methods which check which message is thrown with the exception, as there are 5 places in the \texttt{WordGenerator} class. I have checked each one by passing erroneous parameters into both the \texttt{discovery} and \texttt{generator} methods, and by checking the first 2 words of the message, I can see if the correct exception as been caught & P \\ \hline
+
+
+\end{tabular}
+
+
 \section{Evidence of Testing}
 
 \subsection{Generation}
@@ -183,5 +210,15 @@ To show the discovery of word ladders, I have generated a standard ladder transv
 
 
 \section{Evaluation}
+
+I found this assignment challenging and very useful, as it gave me “real world” experience with programming with graphs and utilising graph specific algorithms, which I have only ever studied in mathematics. It is a very expansive subject, and there still a lot to learn before I can use them to their full potential.  I have tried to adhere to the “Low Coupling, High Cohesion” pattern as much as I could, and I feel like I could take the Model package and implement it in a different program without much hassle. 
+
+However my weak spot in this project was rushing into programming the algorithms to generate word ladders before doing a lot of research into the most efficient ways to solve such a problem, so  I ended up implementing a Depth First Search algorithm before looking at other methods, and by the time I found Depth Limited Search, I didn’t have the time to implement it.
+
+Overall I feel like I have learnt a lot about my style of research and how designing my solution in advance with a well placed research plan will help create a more efficient and a better codebase to work with in the long run.
+
+
+
+
 
 \end{document}
