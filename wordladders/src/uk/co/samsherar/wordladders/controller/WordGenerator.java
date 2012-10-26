@@ -1,10 +1,9 @@
-package uk.ac.aber.dcs.cs221.wordladders.controller;
+package uk.co.samsherar.wordladders.controller;
 
 import java.util.*;
 
-import uk.ac.aber.dcs.cs221.wordladders.model.*;
+import uk.co.samsherar.wordladder.model.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class WordGenerator, which inherits methods the protected variable
  * {@link WordCreator#graph} to create the different wordladders

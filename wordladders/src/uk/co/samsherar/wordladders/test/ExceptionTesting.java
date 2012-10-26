@@ -1,4 +1,4 @@
-package uk.ac.aber.dcs.cs221.wordladders.test;
+package uk.co.samsherar.wordladders.test;
 
 import static org.junit.Assert.*;
 
@@ -7,8 +7,8 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.ac.aber.dcs.cs221.wordladders.controller.WordGenerator;
-import uk.ac.aber.dcs.cs221.wordladders.controller.WordLadderException;
+import uk.co.samsherar.wordladders.controller.WordGenerator;
+import uk.co.samsherar.wordladders.controller.WordLadderException;
 
 public class ExceptionTesting {
 	WordGenerator gen;

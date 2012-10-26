@@ -1,8 +1,7 @@
-package uk.ac.aber.dcs.cs221.wordladders.controller;
+package uk.co.samsherar.wordladders.controller;
 
 import java.util.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class CLHandler.
  */

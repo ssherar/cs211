@@ -1,8 +1,7 @@
-package uk.ac.aber.dcs.cs221.wordladders.model;
+package uk.co.samsherar.wordladder.model;
 
 import java.util.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Graph. This data structure holds all the nodes in
  * a hashtable, which can be type defined by the user on instantiation using

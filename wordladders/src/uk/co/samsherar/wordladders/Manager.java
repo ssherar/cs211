@@ -1,12 +1,11 @@
-package uk.ac.aber.dcs.cs221.wordladders;
+package uk.co.samsherar.wordladders;
 
 import java.io.*;
 import java.util.LinkedList;
 
-import uk.ac.aber.dcs.cs221.wordladders.view.*;
-import uk.ac.aber.dcs.cs221.wordladders.controller.*;
+import uk.co.samsherar.wordladders.controller.*;
+import uk.co.samsherar.wordladders.view.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Manager.
  */

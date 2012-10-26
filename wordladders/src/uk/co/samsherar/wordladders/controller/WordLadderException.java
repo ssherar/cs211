@@ -1,4 +1,4 @@
-package uk.ac.aber.dcs.cs221.wordladders.controller;
+package uk.co.samsherar.wordladders.controller;
 
 /**
  * The Class WordLadderException which gives a message

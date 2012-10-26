@@ -1,6 +1,6 @@
-package uk.ac.aber.dcs.cs221.wordladders.controller;
+package uk.co.samsherar.wordladders.controller;
 
-import uk.ac.aber.dcs.cs221.wordladders.model.*;
+import uk.co.samsherar.wordladder.model.*;
 
 import java.util.*;
 import java.io.*;
@@ -45,7 +45,6 @@ public class WordCreator {
 						this.graph.addVertex(tmp);
 					}
 				} else {
-					//TODO: Debug the ArrayIndexOutOfBoundsException 
 					String[] wordsTmp;
 					wordsTmp = line.split(" ");
 					for(int i = 0; i < line.length() - 1; i++) {

@@ -1,6 +1,7 @@
-package uk.ac.aber.dcs.cs221.wordladders.view;
+package uk.co.samsherar.wordladders.view;
 
-import uk.ac.aber.dcs.cs221.wordladders.controller.*;
+import uk.co.samsherar.wordladders.controller.*;
+
 import java.util.*;
 
 // TODO: Auto-generated Javadoc

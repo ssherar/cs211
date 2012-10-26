@@ -1,4 +1,4 @@
-package uk.ac.aber.dcs.cs221.wordladders.model;
+package uk.co.samsherar.wordladder.model;
 
 import java.util.*;
 

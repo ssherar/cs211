@@ -1,6 +1,6 @@
-package uk.ac.aber.dcs.cs221.wordladders.test;
+package uk.co.samsherar.wordladders.test;
 
-import uk.ac.aber.dcs.cs221.wordladders.model.*;
+import uk.co.samsherar.wordladder.model.*;
 
 import static org.junit.Assert.*;
 

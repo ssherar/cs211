@@ -1,4 +1,4 @@
-package uk.ac.aber.dcs.cs221.wordladders.test;
+package uk.co.samsherar.wordladders.test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

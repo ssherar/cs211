@@ -2,7 +2,7 @@
  * @author Sam Sherar (sbs1)
  */
 
-package uk.ac.aber.dcs.cs221.wordladders;
+package uk.co.samsherar.wordladders;
 
 /**
  * The Class Run.
