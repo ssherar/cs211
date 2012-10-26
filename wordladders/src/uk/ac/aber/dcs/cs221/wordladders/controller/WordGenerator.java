@@ -75,10 +75,10 @@ public class WordGenerator extends WordCreator {
 			
 					Collections.reverse(retVal);
 				} else {
-					throw new WordLadderException("Either " + startWord + " or " + endWord + " do not exist in the dictionary");
+					throw new WordLadderException("No link can be found between " + startWord + " and " + endWord);
 				}
 			} else {
-				throw new WordLadderException("No link can be found between " + startWord + " and " + endWord);
+				throw new WordLadderException("Either " + startWord + " or " + endWord + " do not exist in the dictionary");
 			}
 		} else {
 			throw new WordLadderException("The two words are not the same length");

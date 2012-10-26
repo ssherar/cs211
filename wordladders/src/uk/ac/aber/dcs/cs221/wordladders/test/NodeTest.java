@@ -7,27 +7,19 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class NodeTest.
- */
 public class NodeTest {
 	
-	/** The flick. */
-	private Node<String> clock, click, flick;
+
+	private Node<String> clock, click, flick, newFlick, newClock;
 	
-	/** The ladder. */
 	private Hashtable<String, Node<String>> ladder;
-	
-	/**
-	 * Setup.
-	 */
+
 	@Before
 	public void setup() {
 		ladder = new Hashtable<String, Node<String>>();
-		clock = new Node<String>("Clock");
-		click = new Node<String>("Click");
-		flick = new Node<String>("Flick");
+		clock = new Node<String>("clock");
+		click = new Node<String>("click");
+		flick = new Node<String>("flick");
 		
 		ladder.put("Clock", clock);
 		ladder.put("Click", click);
@@ -38,11 +30,11 @@ public class NodeTest {
 		
 		click.addNode(flick);
 		flick.addNode(click);
+		
+		newFlick = click.getConnected().get("flick");
+		newClock = click.getConnected().get("clock");
 	}
 	
-	/**
-	 * Test sizes.
-	 */
 	@Test
 	public void testSizes() {
 		assertEquals("", 1, clock.getSize());
@@ -50,10 +42,7 @@ public class NodeTest {
 		assertEquals("", 2, click.getSize());
 		assertEquals("", 3, ladder.size());
 	}
-	
-	/**
-	 * Testadd.
-	 */
+
 	@Test
 	public void testadd() {
 		Node<String> flock = new Node<String>("Flock");
@@ -67,5 +56,28 @@ public class NodeTest {
 		assertEquals("", 2, flock.getSize());
 		assertEquals("", 4, ladder.size());
 	}
+	
+	@Test
+	public void testGetValue() {
+		assertEquals("flick", flick.getValue());
+		assertEquals("clock", clock.getValue());
+		assertEquals("click", click.getValue());
+	}
+	
+	@Test
+	public void testMemoryAddresses() {		
+		assertEquals(newFlick, flick);
+		assertEquals(newClock, clock);
+	}
+	
+	@Test
+	public void testEquals() {
+		assertEquals(newFlick.getValue(), flick.getValue());
+		assertEquals(newClock.getValue(), clock.getValue());
+		
+		assertEquals(newFlick.getConnected(), flick.getConnected());
+		assertEquals(newClock.getConnected(), clock.getConnected());
+	}
+	
 
 }
