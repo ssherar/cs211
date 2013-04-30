@@ -2,27 +2,24 @@ package uk.ac.aber.rcs.cs211.schedulersim.scheduler;
 
 import uk.ac.aber.rcs.cs211.schedulersim.Job;
 import uk.ac.aber.rcs.cs211.schedulersim.Scheduler;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Collections;
 import java.util.Random;
 
-public class LotteryScheduler implements Scheduler {
-	protected ArrayList<Job> queue;
+public class ShortestTime implements Scheduler {
+	protected LinkedList<Job> queue;
 	private int numberOfItems;
-	private Random random;
 
 	
-	public LotteryScheduler() {
-		this.queue = new ArrayList<Job>();
+	public ShortestTime() {
+		this.queue = new LinkedList<Job>();
 		this.numberOfItems = 0;
-		this.random = new Random(System.currentTimeMillis());
 	}
 	
 	@Override
 	public Job getNextJob() throws SchedulerException {
 		Job returnJob;
 		if(this.numberOfItems < 1) throw new SchedulerException("Queue is empty");
-		Collections.shuffle(this.queue, this.random);
 		returnJob = (Job)this.queue.get(0);
 		return returnJob;
 	}
@@ -30,7 +27,18 @@ public class LotteryScheduler implements Scheduler {
 	@Override
 	public void addNewJob(Job job) throws SchedulerException {
 		if(this.queue.contains(job)) throw new SchedulerException("Already In Queue");
-		this.queue.add(numberOfItems, job);
+		boolean inserted = false;
+		for(int i = 0; i < numberOfItems && !inserted; i++) {
+			System.out.println();
+			if(job.getLength() - job.getStartCycle() - job.getProgramCounter() < 
+					this.queue.get(i).getLength() - this.queue.get(i).getProgramCounter()
+					-this.queue.get(i).getStartCycle()) {
+				System.out.println("inserted before element " + i);
+				this.queue.add(i, job);
+				inserted = true;
+			}
+		}
+		if(!inserted) this.queue.add(job);
 		this.numberOfItems++;
 	}
 
@@ -50,8 +58,6 @@ public class LotteryScheduler implements Scheduler {
 	public void reset() {
 		this.queue.clear();
 		this.numberOfItems = 0;
-		//reset the seed for more randomness
-		this.random.setSeed(System.currentTimeMillis());
 	}
 
 	@Override
