@@ -22,4 +22,4 @@ release/
 #Compiled source
 *.class
 *.pdf
-*.aux
+*.aux.DS_Store
