@@ -21,12 +21,12 @@ public class RoundRobin implements Scheduler {
 	public RoundRobin () {
 		this.queue = new LinkedList<Job>();
 		this.numberOfJobs=0;
-		step = 0;
+		this.step = 0;
 	}
 	
 	public void addNewJob(Job job) throws SchedulerException {
 		if (this.queue.contains(job)) throw new SchedulerException("Job already on Queue");
-		this.queue.add(this.numberOfJobs, job);
+		this.queue.add(job);
 		this.numberOfJobs++;
 	}
 
