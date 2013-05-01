@@ -23,4 +23,7 @@ release/
 *.class
 *.pdf
 *.aux
+*.log
 .DS_Store
+
+*.sw*
