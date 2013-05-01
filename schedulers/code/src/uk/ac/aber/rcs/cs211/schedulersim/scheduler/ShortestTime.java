@@ -29,11 +29,9 @@ public class ShortestTime implements Scheduler {
 		if(this.queue.contains(job)) throw new SchedulerException("Already In Queue");
 		boolean inserted = false;
 		for(int i = 0; i < numberOfItems && !inserted; i++) {
-			System.out.println();
-			if(job.getLength() - job.getStartCycle() - job.getProgramCounter() < 
-					this.queue.get(i).getLength() - this.queue.get(i).getProgramCounter()
-					-this.queue.get(i).getStartCycle()) {
-				System.out.println("inserted before element " + i);
+			Job tmpJob = this.queue.get(i);
+			if(job.getLength() - job.getProgramCounter() < 
+					tmpJob.getLength() - tmpJob.getProgramCounter()) {
 				this.queue.add(i, job);
 				inserted = true;
 			}
