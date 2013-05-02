@@ -20,13 +20,15 @@ The analysis of a scheduling algorithm is important
 %TODO extend and expand
 \section{Implementation}
 
+When implementing the algorithms, each algorithm was created and tested on each given test file and stepped through to check the implementation was doing as expected. This means that when the additional data files with the larger amount of instructions will run without errors, which might be lost when run through such a large amounts of data.
+
 \subsection{Round Robin Scheduler}
 
 To implement the Round Robin scheduler, we can utilise the First Come First Served scheduler given, but modifying a couple of key aspects. The first thing to do was change the \texttt{ArrayList} to a \texttt{LinkedList} to gauruntee that the returned job will always be entered at the end. We can also add 2 class scoped variables, one specifying the amount of cycles before removing the job at the head of the queue, and one to count how many cycles it has been since we started the job. The main reason for this to create a single edit point, instead of hard coding it so it is easier to analyse the difference between different cycle counts.
 
 \subsection{Shortest Time Remaining Scheduler}
 
-To create the Shortest Time Remaining algorithm, the idea was to check the time remaining when adding the job to the queue by retrieving the \texttt{Job.length()} minus \texttt{Job.get\-ProgramCount()}. Using the documentation I wanted to use \texttt{Job.getElapsedTime()}, but during debugging my code, it seemed to return 0 constantly, and therefore not suitable to get consistant results.
+To create the Shortest Time Remaining algorithm, the idea was to check the time remaining when adding the job to the queue by retrieving the \texttt{Job.length()} minus \texttt{Job.get\-ProgramCount()}. Using the documentation I wanted to use \texttt{Job.getElapsedTime()}, but during debugging my code, it seemed to return 0 constantly, and therefore not suitable to get consistent results.
 
 \subsection{Lottery Scheduler}
 
@@ -34,9 +36,9 @@ The lottery scheduler was implemented as a worst case senario. This was done by 
 
 \section{Method}
 
-To gather a good amount of data, we will be running each algorithm through 3 different datasets: one which was given to me with the scheduler, which has a mix of CPU, I/O blocked and mix of the two; another data file 500 instructions in total across multiple processess, and the last file with 10,000 instructions. 
+To gather a good amount of data, we will be running each algorithm through 3 different datasets: one which was given to me with the scheduler, which has a mix of CPU, I/O blocked and mix of the two; another data file 500 instructions in total across multiple processes, and the last file with 10,000 instructions. 
 
-For unbiased results with the Lottery Scheduler, it will be run through each dataset 10 times and applying Standard Deviation to the results to remove any anomalies. This will give a better mean and average across all the results, and more consistent data if it was actually implemented on a system.
+For unbiased results with the Lottery Scheduler, it will be run through each dataset 10 times and applying Standard Deviation to the results to remove any anomalies. This will give a better mean and average across all the results, and more consistent data if it was actually implemented on a system. To 
 
 \section{Test Constraints}
 
