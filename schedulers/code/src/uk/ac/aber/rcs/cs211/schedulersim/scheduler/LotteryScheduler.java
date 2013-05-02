@@ -20,10 +20,16 @@ public class LotteryScheduler implements Scheduler {
 	
 	@Override
 	public Job getNextJob() throws SchedulerException {
+		ArrayList<Job> tickets = new ArrayList<Job>();
 		Job returnJob;
 		if(this.numberOfItems < 1) throw new SchedulerException("Queue is empty");
-		Collections.shuffle(this.queue, this.random);
-		returnJob = (Job)this.queue.get(0);
+		for(Job j: this.queue) {
+			for(int i = 0; i < j.getPriority(); i++) {
+				tickets.add(j);
+			}
+		}
+		Collections.shuffle(tickets, this.random);
+		returnJob = (Job)tickets.get(0);
 		return returnJob;
 	}
 
