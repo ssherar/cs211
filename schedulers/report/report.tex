@@ -9,19 +9,18 @@
   Samuel B Sherar\\
   \email{sbs1@aber.ac.uk}\
 }
+
 \maketitle
 
-\begin{abstract}
+\section{Introduction}
 In this report I will be analysing the effects of 4 different scheduling algorithms: First In First Out, Shortest Time Remaining, Round Robin \& Lottery Schedulers. During my experiments, I will be conducting tests on different sized datasets and then analysing different aspects of the environment, such as Idle time, Context switching and mean time for an average job.
 
 %TODO extend and expand
-\end{abstract}
-\newpage
+\section{Implementation}
 
-\section{Implementation of the Algorithms}
 \subsection{Round Robin Scheduler}
 
-I implemented the Round Robin scheduler by utilising the First Come First Served scheduler given to us, but modifying a couple of key aspects. The first thing I did was change the \texttt{ArrayList} to a \texttt{LinkedList} to gauruntee that the returned job will always be entered at the end. I also added 2 class scoped variables, one specifying the amount of cycles before removing the job at the head of the queue, and one to count how many cycles it has been since we started the job. The reason that I created a variable instead of hard coding it so I can analyse the difference between different cycle counts.
+To implement the Round Robin scheduler, we can utilise the First Come First Served scheduler given, but modifying a couple of key aspects. The first thing to do was change the \texttt{ArrayList} to a \texttt{LinkedList} to gauruntee that the returned job will always be entered at the end. We can also add 2 class scoped variables, one specifying the amount of cycles before removing the job at the head of the queue, and one to count how many cycles it has been since we started the job. The main reason for this to create a single edit point, instead of hard coding it so it is easier to analyse the difference between different cycle counts.
 
 \subsection{Shortest Time Remaining Scheduler}
 
