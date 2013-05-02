@@ -15,6 +15,8 @@
 \section{Introduction}
 In this report I will be analysing the effects of 4 different scheduling algorithms: First In First Out, Shortest Time Remaining, Round Robin \& Lottery Schedulers. During my experiments, I will be conducting tests on different sized datasets and then analysing different aspects of the environment, such as Idle time, Context switching and mean time for an average job.
 
+The analysis of a scheduling algorithm is important 
+
 %TODO extend and expand
 \section{Implementation}
 
@@ -24,17 +26,17 @@ To implement the Round Robin scheduler, we can utilise the First Come First Serv
 
 \subsection{Shortest Time Remaining Scheduler}
 
-The way I created the Shortest Time Remaining algorithm was to check the time remaining when adding the job to the queue by retrieving the \texttt{Job.length()} minus \texttt{Job.get\-ProgramCount()}. Using the documentation I wanted to use \texttt{Job.getElapsedTime()}, but during debugging my code, it seemed to return 0 constantly, and therefore not suitable to get consistant results.
+To create the Shortest Time Remaining algorithm, the idea was to check the time remaining when adding the job to the queue by retrieving the \texttt{Job.length()} minus \texttt{Job.get\-ProgramCount()}. Using the documentation I wanted to use \texttt{Job.getElapsedTime()}, but during debugging my code, it seemed to return 0 constantly, and therefore not suitable to get consistant results.
 
 \subsection{Lottery Scheduler}
 
-As a worst case scenario, I decided to implement the lottery scheduler. I did this by every time a job is returned from processing, I use \texttt{Collections.shuffle} while using my own object for the randomness. This means that each run I can change the seed to the current milliseconds currently elapsed from the UNIX epoch, and therefore stop issues arising when running the algorithm than more than 1 time.
+The lottery scheduler was implemented as a worst case senario. This was done by every time a job is returned from processing,\texttt{Collections.shuffle} randomised the queue  while using a specified random class for the randomness. This means that each time it was run, the seed was changed to the current milliseconds currently elapsed from the UNIX epoch, and therefore stop issues arising when running the algorithm than more than 1 time.
 
 \section{Method}
 
-To gather a good amount of data, I will be running each algorithm through 3 different datasets: one which was given to me with the scheduler, which has a mix of CPU, I/O blocked and mix of the two; another data file 500 instructions in total across multiple processess, and the last file with 10,000 instructions. 
+To gather a good amount of data, we will be running each algorithm through 3 different datasets: one which was given to me with the scheduler, which has a mix of CPU, I/O blocked and mix of the two; another data file 500 instructions in total across multiple processess, and the last file with 10,000 instructions. 
 
-For unbiased results with the Lottery Scheduler, I will be running it through each dataset 10 times and applying Standard Deviation to the results to remove any anomalies. This will give me a better mean and average across all the results.
+For unbiased results with the Lottery Scheduler, it will be run through each dataset 10 times and applying Standard Deviation to the results to remove any anomalies. This will give a better mean and average across all the results, and more consistent data if it was actually implemented on a system.
 
 \section{Test Constraints}
 
