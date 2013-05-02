@@ -15,7 +15,7 @@
 \section{Introduction}
 In this report I will be analysing the effects of 4 different scheduling algorithms: First In First Out, Shortest Time Remaining, Round Robin \& Lottery Schedulers. During my experiments, I will be conducting tests on different sized datasets and then analysing different aspects of the environment, such as Idle time, Context switching and mean time for an average job.
 
-The analysis of a scheduling algorithm is important 
+The analysis of a scheduling algorithm is important in the Operating System so that every job gets a fair amount of processing time depending on how important it is. However there are issues with certain scheduling algorithms, as there could be points where a job could be waiting for Input/Output (I/O Blocked), and not utilising idling processing time on the CPU, or issues where a job doesn't get access to the CPU due to being a low priority or being pushed to the end due to shorter jobs taking priority, this is called Starvation of a process. 
 
 %TODO extend and expand
 \section{Implementation}
@@ -32,27 +32,46 @@ To create the Shortest Time Remaining algorithm, the idea was to check the time 
 
 \subsection{Lottery Scheduler}
 
-The lottery scheduler was implemented as a worst case senario. This was done by every time a job is returned from processing,\texttt{Collections.shuffle} randomised the queue  while using a specified random class for the randomness. This means that each time it was run, the seed was changed to the current milliseconds currently elapsed from the UNIX epoch, and therefore stop issues arising when running the algorithm than more than 1 time.
+The lottery scheduler was implemented as a worst case senario. This was done by every time a job is returned from processing, it takes each job on the queue, and cycles through adding the job multiple times depending on the priority of the job, then \texttt{Collections.shuffle} randomised the tickets while using a specified random class for the randomness. This means that each time it was run, the seed was changed to the current milliseconds currently elapsed from the UNIX epoch, and therefore stop issues arising when running the algorithm than more than 1 time.
 
 \section{Method}
 
 To gather a good amount of data, we will be running each algorithm through 3 different datasets: one which was given to me with the scheduler, which has a mix of CPU, I/O blocked and mix of the two; another data file 500 instructions in total across multiple processes, and the last file with 10,000 instructions. 
 
-For unbiased results with the Lottery Scheduler, it will be run through each dataset 10 times and applying Standard Deviation to the results to remove any anomalies. This will give a better mean and average across all the results, and more consistent data if it was actually implemented on a system. To 
-
-\section{Test Constraints}
+For unbiased results with the Lottery Scheduler, it will be run through each dataset 10 times and applying Standard Deviation to the results to remove any anomalies. This will give a better mean and average across all the results, and more consistent data if it was actually implemented on a system. To apply the standard deviation, I will be using the mean time of the jobs from the single run. 
 
 \section{Results}
 
-\subsection{Fasted Job Completion}
+For the results, the names of the algorithms have been reduced to acronyms for ease of reading in the table. These are as follows:
 
-\subsection{Idle Time}
+\begin{itemize}
+  \item FCFS -- First Come First Served
+  \item RR -- Round Robin
+  \item STR -- Shortest Time Remaining
+  \item L -- Lottery
+\end{itemize}
 
-\subsection{Mean Time}
+\subsection{Test File}
 
-\subsection{Context Switching}
 
-\section{Conclusion}
+\begin{tabular}{| l | c | c | c | c |}
+  \hline
+  Name & Duration & CPU Time & Switches &  Idle \\
+  \hline
+  FCFS & 48 & 75 & 10 & 6 \\
+  RR & 56 & 69 & 26 & 0 \\
+  STR & 43 & 81 & 11 & 12 \\
+  L & 55.8 & 65 & 53.2 & 1.2 \\
+  \hline
+\end{tabular}
+
+
+\subsection{500 Instructions}
+
+\subsection{10,000 Instructions}
+
+
+\subsection{Conclusion}
 
 
 
